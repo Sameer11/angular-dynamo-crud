@@ -1,0 +1,50 @@
+<div class="container">
+    <h1>Update Student</h1>
+    
+    <a href="#" routerLink="/students/index" class="btn btn-primary">Back</a>
+           
+    <form [formGroup]="form" (ngSubmit)="submit()">
+     
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input
+                formControlName="name"
+                id="name"
+                type="text"
+                [(ngModel)]="student.name"
+                class="form-control">
+            <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+                <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+            </div>
+        </div>
+            
+        <div class="form-group">
+            <label for="email">Email: </label>
+            <input
+                formControlName="email"
+                id="email"
+                type="text"
+                [(ngModel)]="student.email"
+                class="form-control">
+            <span *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                <p *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</p>
+            </span>
+        </div>
+    
+        <div class="form-group">
+            <label for="contact_no">Contact Number: </label>
+            <input
+                formControlName="contact_no"
+                id="contact_no"
+                type="text"
+                [(ngModel)]="student.contact_no"
+                class="form-control">
+            <span *ngIf="f['contact_no'].touched && f['contact_no'].invalid" class="alert alert-danger">
+                <p *ngIf="f['contact_no'].errors && f['contact_no'].errors['required']">Contact Number is required.</p>
+                <p *ngIf="f['contact_no'].errors && f['contact_no'].invalid">Please enter valid contact number.</p>
+            </span>
+        </div>
+          
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>

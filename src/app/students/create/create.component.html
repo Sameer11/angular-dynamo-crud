@@ -1,0 +1,45 @@
+<div class="container">
+    <h1>Create New Student</h1>
+    <a href="#" routerLink="/students/index" class="btn btn-primary">Back</a>
+<form class="form-inline" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    
+    <div class="form-group">
+        <label for="name">Name: </label>
+        <input
+            formControlName="name"
+            id="name"
+            type="text"
+            class="form-control">
+        <span *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+            <p *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</p>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email: </label>
+        <input
+            formControlName="email"
+            id="email"
+            type="text"
+            class="form-control">
+        <span *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+            <p *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</p>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="contact_no">Contact Number: </label>
+        <input
+            formControlName="contact_no"
+            id="contact_no"
+            type="text"
+            class="form-control">
+        <span *ngIf="f['contact_no'].touched && f['contact_no'].invalid" class="alert alert-danger">
+            <p *ngIf="f['contact_no'].errors && f['contact_no'].errors['required']">Contact Number is required.</p>
+            <p *ngIf="f['contact_no'].errors && f['contact_no'].invalid">Please enter valid contact number.</p>
+        </span>
+    </div>
+    
+    <button type="submit">Send</button>
+  </form>
+  </div>

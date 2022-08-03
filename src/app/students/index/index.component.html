@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Trusity Crud - Sameer</h1>
+   
+    <a href="#" routerLink="/students/create/" class="btn btn-success">Create New Post</a>
+     
+    <table id="students" class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let student of students">
+        <td>{{ student.student_id }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.contact_no }}</td>
+        <td>
+          <a href="#" [routerLink]="['/students/', student.student_id, 'view']" class="btn btn-info">View</a>
+          <a href="#" [routerLink]="['/students/', student.student_id, 'edit']" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deletePost(student.student_id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </div>
